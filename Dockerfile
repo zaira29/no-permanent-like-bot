@@ -12,7 +12,8 @@ ENV BOT TOKEN=
 ENV API_URL_TEMPLATE=""
 ENV WEBHOOK_URL="https://no-permanent-like-bot.onrender.com/"
 ENV PORT=5000
-ENV TZ-Asia/Kolkata
-RUN In -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 
 CMD ["python", "bot.py"]
