@@ -1,0 +1,17 @@
+1 version: '3.8'
+2 services:
+   telegram-bot:
+     build:.
+     environment:
+       - BOT_TOKEN=8630175808:AAF2HxYop3A0jjHo7HHmc6s05hhs9SDm4DA
+       - API_URL_TEMPLATE=https://no-permanent-like-api.vercel.app/like?uid={uid}&server_name={region}
+       - WEBHOOK_URL=$https://no-premanent-like-bot.onrender.com/
+        - PORT=$5000
+     ports:
+        - "$5000:$5000"
+     restart: unless-stopped
+     deploy:
+       resources:
+         limits:
+          cpus: '0.5'
+          memory: 512M
