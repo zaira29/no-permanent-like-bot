@@ -1,19 +1,35 @@
+# Sử dụng bản slim để giảm dung lượng image
 FROM python:3.11-slim
 
+# Thiết lập thư mục làm việc
 WORKDIR /app
 
+# Cài đặt các gói hệ thống cần thiết (nếu có thư viện yêu cầu compile)
+# Ở đây cài thêm tzdata để xử lý múi giờ
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tzdata \
+    && rm -rf /var/lib/apt/lists/*
+
+# Sao chép và cài đặt dependencies trước để tận dụng Docker Layer Caching
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY bot.py .
+# Sao chép toàn bộ mã nguồn vào container
+COPY . .
 
-# Sửa lỗi dòng này (đưa lên cùng 1 dòng)
+# Thiết lập biến môi trường
+ENV TZ=Asia/Ho_Chi_Minh
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Các biến này bạn có thể set trực tiếp trên Dashboard của Render 
+# (Environment Variables) để bảo mật hơn, nhưng nếu muốn để đây thì:
 ENV BOT_TOKEN="8630175808:AAF2HxYop3A0jjHo7HHmc6sO5hhs9SDm4DA"
-ENV API_URL_TEMPLATE=""
 ENV WEBHOOK_URL="https://no-permanent-like-bot.onrender.com"
-ENV PORT=5000
-ENV TZ=Asia/Kolkata
+ENV PORT=10000
 
+# Thiết lập múi giờ
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+# Chạy bot
 CMD ["python", "bot.py"]
