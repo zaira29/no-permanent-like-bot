@@ -24,7 +24,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Các biến này bạn có thể set trực tiếp trên Dashboard của Render 
 # (Environment Variables) để bảo mật hơn, nhưng nếu muốn để đây thì:
-ENV BOT_TOKEN="8630175808:AAF2HxYop3A0jjHo7HHmc6sO5hhs9SDm4DA"
+ENV BOT_TOKEN="8701172834:AAHiFRflATS1Z8uKv-a7EBL9dx4eFhhI65M"
 ENV WEBHOOK_URL="https://no-permanent-like-bot.onrender.com"
 ENV PORT=10000
 
