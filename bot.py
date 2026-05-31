@@ -3,8 +3,8 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command, CommandObject
 
 # Cấu hình Token của bạn
-API_TOKEN = '8630175808:AAF2HxYop3A0jjHo7HHmc6s05hhs9SDm4DA'
-ADMIN_ID = 5636904068  # ID Telegram của bạn để quản lý bot
+API_TOKEN = '8701172834:AAHiFRflATS1Z8uKv-a7EBL9dx4eFhhI65M'
+ADMIN_ID = 1620170173  # ID Telegram của bạn để quản lý bot
 
 
 bot = Bot(token=API_TOKEN)
