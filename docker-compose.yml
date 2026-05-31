@@ -3,7 +3,7 @@
    telegram-bot:
      build:.
      environment:
-       - BOT_TOKEN=8630175808:AAF2HxYop3A0jjHo7HHmc6s05hhs9SDm4DA
+       - BOT_TOKEN=8701172834:AAHiFRflATS1Z8uKv-a7EBL9dx4eFhhI65M
        - API_URL_TEMPLATE=https://no-permanent-like-api.vercel.app/like?uid={uid}&server_name={region}
        - WEBHOOK_URL=$https://no-premanent-like-bot.onrender.com/
         - PORT=$5000
